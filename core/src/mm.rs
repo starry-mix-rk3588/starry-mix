@@ -122,11 +122,16 @@ fn map_elf<'a>(
             ph.offset,
             Some(ph.offset + ph.file_size),
         );
+
+        if vaddr == 0x1000 {
+            info!("mapping 0x1000: <start: {:#x}, size: {:#?}, flags: {:#?}>", seg_start.align_down_4k(), seg_align_size, mapping_flags(ph.flags));
+        }
+
         uspace.map(
             seg_start.align_down_4k(),
             seg_align_size,
             mapping_flags(ph.flags),
-            false,
+            true,
             backend,
         )?;
 

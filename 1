@@ -1,0 +1,14 @@
+
+make ARCH=riscv CROSS_COMPILE=riscv64-linux-musl- menuconfig    make ARCH=aarch64 CROSS_COMPILE=aarch64-linux-musl- menuconfig
+make ARCH=riscv CROSS_COMPILE=riscv64-linux-musl- -j40     make ARCH=aarch64 CROSS_COMPILE=aarch64-linux-musl- -j40
+make ARCH=riscv CROSS_COMPILE=riscv64-linux-musl- install   make ARCH=aarch64 CROSS_COMPILE=aarch64-linux-musl- install
+
+
+dd if=/dev/zero of=disk.img bs=1M count=64
+mkfs.ext4 -F disk.img
+mkdir -p mnt
+sudo mount -o loop disk.img mnt
+sudo cp -a _install/* mnt/
+sudo umount mnt
+
+mv disk.img /home/ajax/Projects/rk3588/starry-mix/arceos

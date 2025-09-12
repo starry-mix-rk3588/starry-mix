@@ -40,6 +40,7 @@ pub fn new_user_task(
             });
 
             info!("Enter user space: ip={:#x}, sp={:#x}", uctx.ip(), uctx.sp());
+            info!("name: {:#?}", curr.name());
 
             let thr = curr.as_thread();
             while !thr.pending_exit() {
