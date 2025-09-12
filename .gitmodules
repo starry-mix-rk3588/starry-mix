@@ -1,4 +1,9 @@
 [submodule "arceos"]
 	path = arceos
-	url = https://github.com/Starry-Mix-THU/arceos
-	branch = main
+	url = https://github.com/starry-mix-rk3588/arceos
+	branch = ajax
+
+[submodule "axcpu"]
+	path = module-local/axcpu
+	url = https://github.com/starry-mix-rk3588/axcpu
+	branch = ajax
