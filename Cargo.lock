@@ -284,12 +284,12 @@ dependencies = [
 [[package]]
 name = "axdriver_base"
 version = "0.1.2"
-source = "git+https://github.com/Starry-Mix-THU/axdriver_crates.git?rev=60dbbb6#60dbbb6e65242e4e75c966a745cee1095fcc70b3"
+source = "git+https://github.com/starry-mix-rk3588/axdriver_crates?rev=840f811#840f8110a9c85c9458e8c51f600bbb5a92548e3b"
 
 [[package]]
 name = "axdriver_block"
 version = "0.1.2"
-source = "git+https://github.com/Starry-Mix-THU/axdriver_crates.git?rev=60dbbb6#60dbbb6e65242e4e75c966a745cee1095fcc70b3"
+source = "git+https://github.com/starry-mix-rk3588/axdriver_crates?rev=840f811#840f8110a9c85c9458e8c51f600bbb5a92548e3b"
 dependencies = [
  "axdriver_base",
  "gpt_disk_io",
@@ -300,7 +300,7 @@ dependencies = [
 [[package]]
 name = "axdriver_display"
 version = "0.1.2"
-source = "git+https://github.com/Starry-Mix-THU/axdriver_crates.git?rev=60dbbb6#60dbbb6e65242e4e75c966a745cee1095fcc70b3"
+source = "git+https://github.com/starry-mix-rk3588/axdriver_crates?rev=840f811#840f8110a9c85c9458e8c51f600bbb5a92548e3b"
 dependencies = [
  "axdriver_base",
 ]
@@ -308,7 +308,7 @@ dependencies = [
 [[package]]
 name = "axdriver_input"
 version = "0.1.2"
-source = "git+https://github.com/Starry-Mix-THU/axdriver_crates.git?rev=60dbbb6#60dbbb6e65242e4e75c966a745cee1095fcc70b3"
+source = "git+https://github.com/starry-mix-rk3588/axdriver_crates?rev=840f811#840f8110a9c85c9458e8c51f600bbb5a92548e3b"
 dependencies = [
  "axdriver_base",
  "strum",
@@ -317,7 +317,7 @@ dependencies = [
 [[package]]
 name = "axdriver_net"
 version = "0.1.2"
-source = "git+https://github.com/Starry-Mix-THU/axdriver_crates.git?rev=60dbbb6#60dbbb6e65242e4e75c966a745cee1095fcc70b3"
+source = "git+https://github.com/starry-mix-rk3588/axdriver_crates?rev=840f811#840f8110a9c85c9458e8c51f600bbb5a92548e3b"
 dependencies = [
  "axdriver_base",
  "log",
@@ -327,7 +327,7 @@ dependencies = [
 [[package]]
 name = "axdriver_pci"
 version = "0.1.2"
-source = "git+https://github.com/Starry-Mix-THU/axdriver_crates.git?rev=60dbbb6#60dbbb6e65242e4e75c966a745cee1095fcc70b3"
+source = "git+https://github.com/starry-mix-rk3588/axdriver_crates?rev=840f811#840f8110a9c85c9458e8c51f600bbb5a92548e3b"
 dependencies = [
  "virtio-drivers",
 ]
@@ -335,7 +335,7 @@ dependencies = [
 [[package]]
 name = "axdriver_virtio"
 version = "0.1.2"
-source = "git+https://github.com/Starry-Mix-THU/axdriver_crates.git?rev=60dbbb6#60dbbb6e65242e4e75c966a745cee1095fcc70b3"
+source = "git+https://github.com/starry-mix-rk3588/axdriver_crates?rev=840f811#840f8110a9c85c9458e8c51f600bbb5a92548e3b"
 dependencies = [
  "axdriver_base",
  "axdriver_block",
@@ -1665,7 +1665,7 @@ dependencies = [
 [[package]]
 name = "page_table_entry"
 version = "0.5.5"
-source = "git+https://github.com/Starry-Mix-THU/page_table_multiarch.git?rev=4edb821#4edb8217a12dd033409d8ac48f7adae5a89babfa"
+source = "git+https://github.com/starry-mix-rk3588/page_table_multiarch?rev=3f697c8#3f697c8c876432f42d5429a5b8d130889213ff6e"
 dependencies = [
  "aarch64-cpu",
  "bitflags 2.9.1",
@@ -1676,7 +1676,7 @@ dependencies = [
 [[package]]
 name = "page_table_multiarch"
 version = "0.5.5"
-source = "git+https://github.com/Starry-Mix-THU/page_table_multiarch.git?rev=4edb821#4edb8217a12dd033409d8ac48f7adae5a89babfa"
+source = "git+https://github.com/starry-mix-rk3588/page_table_multiarch?rev=3f697c8#3f697c8c876432f42d5429a5b8d130889213ff6e"
 dependencies = [
  "arrayvec",
  "bitmaps",
@@ -2044,7 +2044,7 @@ checksum = "0fda2ff0d084019ba4d7c6f371c95d8fd75ce3524c3cb8fb653a3023f6323e64"
 [[package]]
 name = "simple-sdmmc"
 version = "0.1.0"
-source = "git+https://github.com/Starry-Mix-THU/simple-sdmmc.git?rev=db64be9#db64be91d8b5b0cae5c33f8e13e41a010233a306"
+source = "git+https://github.com/Starry-OS/simple-sdmmc.git?rev=db64be9#db64be91d8b5b0cae5c33f8e13e41a010233a306"
 dependencies = [
  "bitfield-struct",
  "log",
