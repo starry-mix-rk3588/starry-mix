@@ -15,9 +15,5 @@
 ```bash
 git clone -b ajax --recurse-submodules https://github.com/starry-mix-rk3588/starry-mix.git
 cd starry-mix
-#  -// pub type A64PageTableMut<H> = PageTable64Mut<'_, A64PagingMetaData, A64PTE, H>;
-#  +pub type A64PageTableMut<'a, H> = PageTable64Mut<'a, A64PagingMetaData, A64PTE, H>;
-#  +#[cfg(target_arch = "aarch64")]
-#  +const PCI_IRQ_BASE: u32 = 0x20;
 make ARCH=aarch64 run LOG=debug
 ```
