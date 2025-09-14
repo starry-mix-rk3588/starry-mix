@@ -23,6 +23,7 @@ use crate::{
     signal::{check_signals, unblock_next_signal},
     syscall::handle_syscall,
 };
+// use axhal::context::TrapFrame;
 
 /// Create a new user task.
 pub fn new_user_task(
@@ -44,6 +45,12 @@ pub fn new_user_task(
 
             let thr = curr.as_thread();
             while !thr.pending_exit() {
+                let _ = curr.get_stack_bottom();
+                // unsafe {
+                //     let tf_ptr: *mut TrapFrame = sp_bottom as *mut TrapFrame;
+                //     let dest_frame: &TrapFrame = &*tf_ptr;
+                //     debug!("dest: {:#?}", dest_frame);
+                // }
                 let reason = uctx.run();
 
                 set_timer_state(&curr, TimerState::Kernel);

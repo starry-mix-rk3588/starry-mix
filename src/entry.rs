@@ -50,8 +50,11 @@ pub fn run_initproc(args: &[String], envs: &[String]) -> i32 {
 
     let uctx = UserContext::new(entry.into(), ustack_top, 0);
 
-    let mut task = new_user_task(name, uctx, None);
+    let mut task = new_user_task(name, uctx.clone(), None);
     task.ctx_mut().set_page_table_root(uspace.page_table_root());
+    // uctx.u_sp_el1 = task.kernel_stack_top().unwrap().as_usize() as u64;
+    // warn!("uctx.u_sp_el1: {:#x}", uctx.u_sp_el1);
+    task.set_trap_context(*uctx);
 
     let pid = task.id().as_u64() as Pid;
     let proc = Process::new_init(pid);
