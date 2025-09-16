@@ -125,15 +125,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "arm_gicv2"
-version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "47d25e73c949c69f75d1b9dba39c5475523403b31eb8c2fdc99da4dc33bc1aca"
-dependencies = [
- "tock-registers 0.8.1",
-]
-
-[[package]]
 name = "arm_pl011"
 version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -568,28 +559,9 @@ dependencies = [
  "axconfig-macros",
  "axcpu",
  "axplat 0.2.0",
- "axplat-aarch64-peripherals 0.2.0",
+ "axplat-aarch64-peripherals",
  "dw_apb_uart",
  "kspin",
- "log",
- "page_table_entry",
-]
-
-[[package]]
-name = "axplat-aarch64-peripherals"
-version = "0.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2f3455ad3c2e0da36047388ac263aa6cf6b80ad80a2d9f1186d73fec2f0cafc7"
-dependencies = [
- "aarch64-cpu",
- "arm_gicv2",
- "arm_pl011",
- "arm_pl031",
- "axcpu",
- "axplat 0.1.0",
- "int_ratio",
- "kspin",
- "lazyinit",
  "log",
  "page_table_entry",
 ]
@@ -616,14 +588,14 @@ dependencies = [
 
 [[package]]
 name = "axplat-aarch64-qemu-virt"
-version = "0.1.0"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6d5d75b950e70a6548b8537aecded7ccafdd3ec639057c4c7c7d6d05b09d0e4d"
+checksum = "6f03bfe81ebc5b2f567eecadcab221107b90f394485dd0da39334411a676d81a"
 dependencies = [
  "axconfig-macros",
  "axcpu",
- "axplat 0.1.0",
- "axplat-aarch64-peripherals 0.1.1",
+ "axplat 0.2.0",
+ "axplat-aarch64-peripherals",
  "log",
  "page_table_entry",
 ]
@@ -1614,7 +1586,6 @@ dependencies = [
 [[package]]
 name = "lwext4_rust"
 version = "0.2.0"
-source = "git+https://github.com/Starry-Mix-THU/lwext4_rust?rev=43d771a#43d771a9dca8f536a86c2538e5334c42a3ef3855"
 dependencies = [
  "bindgen",
  "log",
