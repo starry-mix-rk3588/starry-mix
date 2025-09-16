@@ -6,3 +6,6 @@
 	path = module-local/axcpu
 	url = https://github.com/starry-mix-rk3588/axcpu
 	branch = ajax
+[submodule "module-local/axplat-opi5p"]
+	path = module-local/axplat-opi5p
+	url = https://github.com/starry-mix-rk3588/axplat-opi5p.git
