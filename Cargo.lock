@@ -111,6 +111,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "arm-gic-driver"
+version = "0.15.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f251a1a74133f802b55eaf5e340107b0024457aa9b2ac3c72074501bfa8509a5"
+dependencies = [
+ "aarch64-cpu",
+ "bitflags 2.9.1",
+ "enum_dispatch",
+ "log",
+ "paste",
+ "tock-registers 0.9.0",
+]
+
+[[package]]
 name = "arm_gicv2"
 version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -196,7 +210,7 @@ dependencies = [
  "gimli",
  "log",
  "paste",
- "spin",
+ "spin 0.9.8",
 ]
 
 [[package]]
@@ -321,7 +335,7 @@ source = "git+https://github.com/starry-mix-rk3588/axdriver_crates?rev=840f811#8
 dependencies = [
  "axdriver_base",
  "log",
- "spin",
+ "spin 0.9.8",
 ]
 
 [[package]]
@@ -394,7 +408,7 @@ dependencies = [
  "lwext4_rust",
  "scope-local",
  "slab",
- "spin",
+ "spin 0.9.8",
 ]
 
 [[package]]
@@ -423,7 +437,7 @@ dependencies = [
  "axcpu",
  "axio",
  "axlog",
- "axplat",
+ "axplat 0.1.0",
  "axplat-aarch64-qemu-virt",
  "axplat-loongarch64-qemu-virt",
  "axplat-riscv64-qemu-virt",
@@ -516,7 +530,7 @@ dependencies = [
  "log",
  "ringbuf",
  "smoltcp",
- "spin",
+ "spin 0.9.8",
 ]
 
 [[package]]
@@ -533,6 +547,35 @@ dependencies = [
 ]
 
 [[package]]
+name = "axplat"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f4de04c54b63bf2ca1ff202733d2516da49d7779649cdb2f9c4ecf22909e6810"
+dependencies = [
+ "axplat-macros",
+ "bitflags 2.9.1",
+ "const-str",
+ "crate_interface",
+ "handler_table",
+ "kspin",
+ "memory_addr",
+]
+
+[[package]]
+name = "axplat-aarch64-opi5p"
+version = "0.1.0"
+dependencies = [
+ "axconfig-macros",
+ "axcpu",
+ "axplat 0.2.0",
+ "axplat-aarch64-peripherals 0.2.0",
+ "dw_apb_uart",
+ "kspin",
+ "log",
+ "page_table_entry",
+]
+
+[[package]]
 name = "axplat-aarch64-peripherals"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -543,12 +586,32 @@ dependencies = [
  "arm_pl011",
  "arm_pl031",
  "axcpu",
- "axplat",
+ "axplat 0.1.0",
  "int_ratio",
  "kspin",
  "lazyinit",
  "log",
  "page_table_entry",
+]
+
+[[package]]
+name = "axplat-aarch64-peripherals"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5a9a6548290a150059eb2ae015dc58d9b3d652461760327b95a490666129974c"
+dependencies = [
+ "aarch64-cpu",
+ "arm-gic-driver",
+ "arm_pl011",
+ "arm_pl031",
+ "axcpu",
+ "axplat 0.2.0",
+ "int_ratio",
+ "kspin",
+ "lazyinit",
+ "log",
+ "page_table_entry",
+ "spin 0.10.0",
 ]
 
 [[package]]
@@ -559,8 +622,8 @@ checksum = "6d5d75b950e70a6548b8537aecded7ccafdd3ec639057c4c7c7d6d05b09d0e4d"
 dependencies = [
  "axconfig-macros",
  "axcpu",
- "axplat",
- "axplat-aarch64-peripherals",
+ "axplat 0.1.0",
+ "axplat-aarch64-peripherals 0.1.1",
  "log",
  "page_table_entry",
 ]
@@ -572,7 +635,7 @@ source = "git+https://github.com/Starry-Mix-THU/axplat-loongarch64-2k1000la.git?
 dependencies = [
  "axconfig-macros",
  "axcpu",
- "axplat",
+ "axplat 0.1.0",
  "chrono",
  "kspin",
  "lazyinit",
@@ -589,7 +652,7 @@ source = "git+https://github.com/Starry-Mix-THU/axplat_crates.git?rev=e00adbb#e0
 dependencies = [
  "axconfig-macros",
  "axcpu",
- "axplat",
+ "axplat 0.1.0",
  "chrono",
  "kspin",
  "lazyinit",
@@ -617,7 +680,7 @@ source = "git+https://github.com/Starry-Mix-THU/axplat_crates.git?rev=e00adbb#e0
 dependencies = [
  "axconfig-macros",
  "axcpu",
- "axplat",
+ "axplat 0.1.0",
  "kspin",
  "lazyinit",
  "log",
@@ -635,7 +698,7 @@ source = "git+https://github.com/Starry-Mix-THU/axplat-riscv64-visionfive2.git?r
 dependencies = [
  "axconfig-macros",
  "axcpu",
- "axplat",
+ "axplat 0.1.0",
  "kspin",
  "lazyinit",
  "log",
@@ -654,7 +717,7 @@ checksum = "05b1b3bee47e2965347b943c86adb1a65555d90e4d5e6271fe99489957520590"
 dependencies = [
  "axconfig-macros",
  "axcpu",
- "axplat",
+ "axplat 0.1.0",
  "bitflags 2.9.1",
  "heapless",
  "int_ratio",
@@ -687,7 +750,7 @@ dependencies = [
  "axlog",
  "axmm",
  "axnet",
- "axplat",
+ "axplat 0.1.0",
  "axsync",
  "axtask",
  "chrono",
@@ -729,7 +792,7 @@ dependencies = [
  "pin-project",
  "priority-queue",
  "scheduler",
- "spin",
+ "spin 0.9.8",
 ]
 
 [[package]]
@@ -1097,6 +1160,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "dw_apb_uart"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f93d496c8faa9dc676ebfa225432e1e3b57645c9268ead889286546f6d39356d"
+dependencies = [
+ "tock-registers 0.8.1",
+]
+
+[[package]]
 name = "either"
 version = "1.15.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1297,6 +1369,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "handler_table"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "702cb690200d6303c1e1992bc648f3f3bf9c1d6a27fcf50551c513d61f339c99"
+
+[[package]]
 name = "hash32"
 version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1447,7 +1525,7 @@ version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bbd2bcb4c963f2ddae06a2efc7e9f3591312473c50c6685e1f298068316e66fe"
 dependencies = [
- "spin",
+ "spin 0.9.8",
 ]
 
 [[package]]
@@ -1702,7 +1780,7 @@ dependencies = [
  "cfg-if",
  "kernel_guard",
  "percpu_macros",
- "spin",
+ "spin 0.9.8",
  "x86",
 ]
 
@@ -2026,7 +2104,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "231e441739fbe668e91acf8440a0b1ac83c73faec7a6d984190ee25354c2ec9a"
 dependencies = [
  "percpu",
- "spin",
+ "spin 0.9.8",
 ]
 
 [[package]]
@@ -2098,6 +2176,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "spin"
+version = "0.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d5fe4ccb98d9c292d56fec89a5e07da7fc4cf0dc11e156b41793132775d3e591"
+dependencies = [
+ "lock_api",
+]
+
+[[package]]
 name = "stable_deref_trait"
 version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2113,6 +2200,7 @@ dependencies = [
  "axfs-ng",
  "axhal",
  "axlog",
+ "axplat-aarch64-opi5p",
  "axplat-loongarch64-2k1000la",
  "axplat-riscv64-visionfive2",
  "axruntime",
@@ -2171,7 +2259,7 @@ dependencies = [
  "riscv",
  "scope-local",
  "slab",
- "spin",
+ "spin 0.9.8",
  "starry-core",
  "starry-process",
  "starry-signal",
@@ -2217,7 +2305,7 @@ dependencies = [
  "percpu",
  "scope-local",
  "slab",
- "spin",
+ "spin 0.9.8",
  "starry-process",
  "starry-signal",
  "starry-vm",

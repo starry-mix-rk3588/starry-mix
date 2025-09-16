@@ -15,6 +15,8 @@ export A := $(PWD)
 export NO_AXSTD := y
 export AX_LIB := axfeat
 export APP_FEATURES := qemu
+TARGET_DIR := $(PWD)/target/aarch64-unknown-none-softfloat/release/starry
+TOOL_PATH = $(PWD)/module-local/axplat-opi5p/tools/orangepi5
 
 ifeq ($(MEMTRACK), y)
 	APP_FEATURES += starry-api/memtrack
@@ -69,10 +71,23 @@ vf2:
 2k1000la:
 	$(MAKE) ARCH=loongarch64 APP_FEATURES=2k1000la MYPLAT=axplat-loongarch64-2k1000la BUS=dummy build
 
+opi5p:
+	$(MAKE) ARCH=aarch64 APP_FEATURES=opi5p MYPLAT=axplat-aarch64-opi5p BUS=dummy MODE=release build
+	rust-objcopy -O binary $(TARGET_DIR) $(TARGET_DIR).bin
+	sudo bash $(TOOL_PATH)/make_disk.sh $(TARGET_DIR).img $(TARGET_DIR).bin
+	rust-objdump -d --print-imm-hex $(TARGET_DIR) > $(TARGET_DIR).disasm
+
+upload: 
+	bash $(TOOL_PATH)/upload_flash.sh $(TARGET_DIR).img
+
 build justrun debug disasm: defconfig
 	@make -C arceos $@
 
 defconfig:
 	@make -C arceos $@
 
+clean:
+	@make -C arceos $@
+	rm -rf target
+	rm -rf .cargo
 .PHONY: all build run justrun debug disasm clean

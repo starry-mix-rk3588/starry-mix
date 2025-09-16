@@ -12,6 +12,7 @@ authors = [
 ]
 homepage = "https://github.com/arceos-org/arceos"
 repository = "https://github.com/arceos-org/starry-next"
+license = "GPL-3.0-or-later OR Apache-2.0 OR MulanPSL-2.0"
 
 [workspace.dependencies]
 axfeat = { path = "arceos/api/axfeat", features = [
@@ -104,6 +105,7 @@ qemu = [
 ]
 vf2 = ["dep:axplat-riscv64-visionfive2", "axfeat/driver-sdmmc-gpt"]
 2k1000la = ["dep:axplat-loongarch64-2k1000la", "axfeat/driver-ahci-gpt"]
+opi5p = ["dep:axplat-aarch64-opi5p", "axfeat/driver-sdmmc-gpt"]
 
 # Stubs
 pci = ["axfeat/bus-pci"]
@@ -140,6 +142,11 @@ optional = true
 git = "https://github.com/Starry-Mix-THU/axplat-loongarch64-2k1000la.git"
 rev = "792e170"
 features = ["fp-simd", "irq", "rtc"]
+optional = true
+
+[dependencies.axplat-aarch64-opi5p]
+path = "module-local/axplat-opi5p/axplat-aarch64-opi5p"
+features = ["irq"]
 optional = true
 
 [patch.crates-io]

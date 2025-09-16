@@ -1,6 +1,8 @@
 {
-  "rust-analyzer.cargo.target": "riscv64gc-unknown-none-elf",
-  // "rust-analyzer.cargo.target": "loongarch64-unknown-none-softfloat",
-  "rust-analyzer.cargo.allTargets": false,
-  "rust-analyzer.cargo.features": ["qemu", "pci"]
+    "rust-analyzer.cargo.target": "aarch64-unknown-none-softfloat",
+    "rust-analyzer.check.allTargets": false,
+    "rust-analyzer.cargo.features": ["opi5p", "myplat"],
+    "rust-analyzer.server.extraEnv": {
+        "CARGO_REGISTRIES_CRATES_IO_PROTOCOL": "sparse"
+    }
 }

@@ -47,3 +47,6 @@ extern crate axplat_riscv64_visionfive2;
 
 #[cfg(feature = "2k1000la")]
 extern crate axplat_loongarch64_2k1000la;
+
+#[cfg(feature = "opi5p")]
+extern crate axplat_aarch64_opi5p;
