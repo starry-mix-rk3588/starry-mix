@@ -9,3 +9,6 @@
 [submodule "module-local/axplat-opi5p"]
 	path = module-local/axplat-opi5p
 	url = https://github.com/starry-mix-rk3588/axplat-opi5p.git
+[submodule "module-local/lwext4_rust"]
+	path = module-local/lwext4_rust
+	url = https://github.com/starry-mix-rk3588/lwext4_rust.git
