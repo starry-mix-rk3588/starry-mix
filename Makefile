@@ -50,6 +50,7 @@ else ifeq ($(ARCH), loongarch64)
 endif
 
 run: defconfig
+	rust-objdump -d --print-imm-hex $(TARGET_DIR) > $(TARGET_DIR)_qemu.disasm
 	@if [ -f "$(IMG)" ]; then \
 		cp $(IMG) arceos/disk.img; \
 	fi
@@ -75,10 +76,13 @@ opi5p:
 	$(MAKE) ARCH=aarch64 APP_FEATURES=opi5p MYPLAT=axplat-aarch64-opi5p BUS=dummy MODE=release build
 	rust-objcopy -O binary $(TARGET_DIR) $(TARGET_DIR).bin
 	sudo bash $(TOOL_PATH)/make_disk.sh $(TARGET_DIR).img $(TARGET_DIR).bin
-	rust-objdump -d --print-imm-hex $(TARGET_DIR) > $(TARGET_DIR).disasm
+	rust-objdump -d --print-imm-hex $(TARGET_DIR) > $(TARGET_DIR)_opi5p.disasm
 
 upload: 
 	bash $(TOOL_PATH)/upload_flash.sh $(TARGET_DIR).img
+
+flash:
+	sudo bash $(TOOL_PATH)/make_flash.sh $(TARGET_DIR).img
 
 build justrun debug disasm: defconfig
 	@make -C arceos $@
