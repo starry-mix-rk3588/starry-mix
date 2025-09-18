@@ -556,6 +556,7 @@ dependencies = [
 name = "axplat-aarch64-opi5p"
 version = "0.1.0"
 dependencies = [
+ "aarch64-cpu",
  "axconfig-macros",
  "axcpu",
  "axplat 0.2.0",
