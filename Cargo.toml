@@ -111,6 +111,8 @@ opi5p = ["dep:axplat-aarch64-opi5p", "axfeat/driver-sdmmc-gpt"]
 pci = ["axfeat/bus-pci"]
 mmio = ["axfeat/bus-mmio"]
 
+myplat = []
+
 [dependencies]
 axfeat.workspace = true
 
