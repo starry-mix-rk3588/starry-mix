@@ -148,7 +148,7 @@ optional = true
 
 [dependencies.axplat-aarch64-opi5p]
 path = "module-local/axplat-opi5p/axplat-aarch64-opi5p"
-features = ["irq"]
+features = ["irq", "fp-simd"]
 optional = true
 
 [patch.crates-io]

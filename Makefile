@@ -8,7 +8,7 @@ export MEMTRACK := n
 export BLK := y
 export NET := y
 export MEM := 1G
-export TEST := pre
+export TEST := alpine
 
 # Generated Options
 export A := $(PWD)
