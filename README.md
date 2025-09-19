@@ -21,13 +21,11 @@ make ARCH=aarch64 LOG=debug run
 
 # OrangePi 5 Plus
 
-## SD卡
-SD 卡需要创建 GPT 分区，并将分区命名为 root，并分区格式化为 ext4 格式，并制作 StarryOS 的文件系统
-
-## eMMC （可选）
+## eMMC（TODO）
 
 将镜像烧写到 eMMC，或者在 SD 卡中创建两个分区，参考 [eMMC 烧写](https://github.com/starry-mix-rk3588/axplat-opi5p?tab=readme-ov-file#%E7%83%A7%E5%86%99-emmc)
 
+## SDMMC
 
 ``` bash
 git clone -b ajax --recurse-submodules https://github.com/starry-mix-rk3588/starry-mix.git
@@ -35,8 +33,11 @@ cd module-local/lwext4_rust/c
 git submodule init && git submodule update
 make musl-generic -C c/lwext4 ARCH=aarch64
 cd ../../../ # 回到根目录
-make ARCH=aarch64 LOG=error opi5p
-make ARCH=aarch64 LOG=error flash
+cd module-local/axplat-opi5p/tools/orangepi5
+sudo bash ./make_flash.sh partition rootfs=disk.img # 仅第一次需要, 和写入文件系统的时候需要
+make ARCH=aarch64 LOG=error opi5p # 制作 uimg 镜像文件
+# 进入Maskrom 模式
+make ARCH=aarch64 LOG=error flash # 制作并烧写 boot 镜像
 ```
 
 ``` bash
