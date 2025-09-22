@@ -12,3 +12,6 @@
 [submodule "module-local/lwext4_rust"]
 	path = module-local/lwext4_rust
 	url = https://github.com/starry-mix-rk3588/lwext4_rust.git
+[submodule "module-local/rknpu2-rslab"]
+	path = module-local/rknpu2-rslab
+	url = https://github.com/starry-mix-rk3588/rknpu2-rslab.git
